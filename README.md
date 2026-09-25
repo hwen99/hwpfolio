@@ -1,38 +1,22 @@
-# Portfolio source files
+# Hannah Wen — Technical Writing & Content Systems
 
-Source files for Hannah Wen’s technical writing and content systems portfolio, built as a GitHub Pages website. Start with [the landing page](landing-page.md).
+This repository contains the source for my portfolio of product documentation, customer communications, and tools that improve documentation workflows.
 
-Portfolio pages are written in Markdown, with screenshots and diagrams stored in the `assets/` folder.
+**[Visit my portfolio →](https://hwen99.github.io/hwpfolio/)**
 
-## Editing the portfolio
+## Explore my work
 
-- `landing-page.md`: introduction, portfolio descriptions, and contact information.
-- `writing.md`: writing case studies.
-- `systems.md`: content systems case studies.
-- `assets/`: screenshots and diagrams. Use descriptive alt text and paths such as `assets/planning-notes.png`.
-- `site/styles.css`: shared layout, colors, typography, and mobile styles.
-- `scripts/build.mjs`: page template and conversion from Markdown to HTML.
+- **[Writing Portfolio](https://hwen99.github.io/hwpfolio/writing.html)** — Concept guides, onboarding workflows, and feature documentation for networking and security products, alongside customer communications and product copy.
+- **[Systems Portfolio](https://hwen99.github.io/hwpfolio/systems.html)** — Document Builder, a Flare-to-Markdown migration, and an exploratory evaluation of documentation for AI retrieval.
 
-The website presents the landing page’s two portfolio entries as borderless cards. The Markdown table remains readable when browsing the source on GitHub. Navigation, section links, and image paths work under the repository’s `/hwpfolio/` address.
+The case studies explain the problem, my contribution, the decisions behind the work, and the results, with documentation samples and planning artifacts.
 
-## Build locally
+## The workflow behind this portfolio
 
-Install Node.js 22 or newer, then run:
+The portfolio itself uses a docs-as-code workflow: content is authored in Markdown, versioned in Git, and published through GitHub Actions to GitHub Pages. A shared template keeps presentation separate from content, and automated checks verify local links, section targets, and image alt text before deployment.
 
-```sh
-npm ci
-npm run build
-npm run check
-```
+To explore the source, start with the [writing case studies](writing.md), [systems case studies](systems.md), or [publishing workflow](.github/workflows/pages.yml).
 
-Open `_site/index.html` in a browser to preview the result. Generated files are ignored by Git; edit the Markdown and source files instead.
+## Contact
 
-## Publish on GitHub Pages
-
-1. Commit and push the project files to the `main` branch of `hwen99/hwpfolio`.
-2. In the repository, open **Settings → Pages** and choose **GitHub Actions** as the build and deployment source.
-3. In **Actions**, run **Publish portfolio** if it has not already run successfully.
-
-The workflow builds the site, checks local links and image descriptions, and publishes only the generated `_site` folder. Later pushes to `main` publish updates automatically. Pull requests build and check without publishing.
-
-Once deployment succeeds, the website address will be https://hwen99.github.io/hwpfolio/.
+[Email](mailto:wenhannahh@gmail.com) · [LinkedIn](https://www.linkedin.com/in/wenhannah/)
