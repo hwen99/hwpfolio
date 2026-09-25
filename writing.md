@@ -1,9 +1,9 @@
-# Writing Portfolio
+# Writing
 
 I create technical content that helps readers understand complex systems and make informed decisions. 
 
 These selected projects demonstrate how I organize interconnected concepts, clarify configuration choices, and use diagrams to guide readers from understanding a system to applying it.
-
+<!--
 Case studies by type:
 
 [Product Documentation](#product-documentation) 
@@ -15,8 +15,8 @@ Case studies by type:
 [Product Messaging](#product-messaging) 
 
 - [Product Announcement Email](#product-announcement-email)
-- [**Feature Copy in Different Styles**](#feature-copy-in-different-styles)
-
+- [Feature Copy in Different Styles](#feature-copy-in-different-styles)
+-->
 # Product Documentation
 
 Technical guides and explanations that help cybersecurity B2B SaaS customers understand product features, make configuration decisions, and complete setup.
@@ -257,7 +257,7 @@ The following is my proposed draft for one of the customer announcement emails. 
 > The [Unified Security Platform] Team
 > 
 
-## **Feature Copy in Different Styles**
+## Feature Copy in Different Styles
 
 Self-directed exercise · Product copywriting
 

@@ -1,13 +1,13 @@
-# Systems Portfolio
+# Content Systems
 
 Alongside technical writing, I improve documentation workflows and build tools that make content easier to manage, clearer for readers, and better suited to AI systems.
-
+<!--
 Case studies:
 
 - [Document Builder](#document-builder)
 - [Madcap Flare to Markdown Migration](#madcap-flare-to-markdown-migration)
 - [**Evaluating Documentation for AI Retrieval**](#evaluating-documentation-for-ai-retrieval)
-
+-->
 ## Document Builder
 
 AI-assisted software development · Docs-as-code 

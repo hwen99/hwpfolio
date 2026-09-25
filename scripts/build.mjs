@@ -22,7 +22,10 @@ for (const page of pages) {
       const count = ids.get(base) || 0;
       ids.set(base, count + 1);
       const id = count ? `${base}-${count}` : base;
-      if (depth === 2) toc.push(`<a href="#${id}">${text}</a>`);
+      if (depth === 2) {
+        const tocClass = page.kind === 'writing' && !['Product Documentation', 'Product Messaging'].includes(text) ? 'toc-child' : 'toc-root';
+        toc.push(`<a class="${tocClass}" href="#${id}">${text}</a>`);
+      }
       return `<h${depth} id="${id}">${text}</h${depth}>\n`;
     },
     link({ href, title, tokens }) {
@@ -37,7 +40,7 @@ for (const page of pages) {
       const headings = [...rows[0].matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)];
       const descriptions = rows[2].split('|').slice(1, -1).map(cell => cell.trim());
       if (headings.length !== 2 || descriptions.length !== 2) throw new Error('Expected two portfolio columns on the landing page.');
-      return `<div class="portfolio-grid">\n${headings.map((heading, index) => `<a class="portfolio-card" href="${escape(heading[2].replace('.md', '.html'))}"><span class="card-number">0${index + 1}</span><h3>${escape(heading[1])}</h3><p>${markdown.parseInline(descriptions[index])}</p><span class="card-link">${index === 0 ? 'Writing' : 'Systems'} Portfolio <span aria-hidden="true">↗</span></span></a>`).join('\n')}\n</div>\n`;
+      return `<div class="portfolio-grid">\n${headings.map((heading, index) => `<a class="portfolio-card" href="${escape(heading[2].replace('.md', '.html'))}"><h3>${escape(heading[1])}</h3><p>${markdown.parseInline(descriptions[index])}</p><span class="card-link">${index === 0 ? 'Writing' : 'Systems'} Portfolio <span aria-hidden="true">↗</span></span></a>`).join('\n')}\n</div>\n`;
     });
     source = source.replace(/^# My work/m, '## My work').replace(/^# About me/m, '## About me');
   } else {
