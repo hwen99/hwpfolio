@@ -8,17 +8,9 @@ I make complex information easier to understand and manage.
 
 ---
 
-### Writing
-
-Guides, customer communications, and product copy, optimized for clarity.
-
-[Writing Portfolio](Writing%20Portfolio%208a2efc4a13654e409743f0fb09e20c6c.md)
-
-### Content Systems
-
-Workflows and tools that support documentation.
-
-[Systems Portfolio](Systems%20Portfolio%20fe24a32b788c4b768656ee65003a7d83.md)
+| [Writing](writing.md)                                                     | [Content Systems](systems.md)                   |
+| ------------------------------------------------------------------------- | ----------------------------------------------- |
+| Guides, customer communications, and product copy, optimized for clarity. | Workflows and tools that support documentation. |
 
 # About me
 
@@ -35,3 +27,6 @@ I hold an Honours Bachelor of Science from the University of Toronto, with a maj
 - **Networking and security:** Cloud networking, DNS and global load balancing, web application security.
 - **AI and quantitative methods:** AI models, mathematics, probability, statistical methods for machine learning, and time series analysis.
 - **UX and visual design:** User research, information architecture, prototyping, visual design, and UI writing.
+
+
+Want to discuss technical writing or documentation workflows? [Email me](mailto:wenhannahh@gmail.com) or [connect on LinkedIn](https://www.linkedin.com/in/wenhannah/).

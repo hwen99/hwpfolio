@@ -6,23 +6,16 @@ These selected projects demonstrate how I organize interconnected concepts, clar
 
 Case studies by type:
 
-[Product Documentation](Writing%20Portfolio%208a2efc4a13654e409743f0fb09e20c6c.md) 
+[Product Documentation](#product-documentation) 
 
-- [Global Server Load Balancer Concept Guide](Writing%20Portfolio%208a2efc4a13654e409743f0fb09e20c6c.md)
-- [Web Application Firewall Onboarding Workflow](Writing%20Portfolio%208a2efc4a13654e409743f0fb09e20c6c.md)
-- [Authentication Proxy Feature](Writing%20Portfolio%208a2efc4a13654e409743f0fb09e20c6c.md)
+- [Global Server Load Balancer Concept Guide](#global-server-load-balancer-concept-guide)
+- [Web Application Firewall Onboarding Workflow](#web-application-firewall-onboarding-workflow)
+- [Authentication Proxy Feature](#authentication-proxy-feature)
 
-[Product Messaging](Writing%20Portfolio%208a2efc4a13654e409743f0fb09e20c6c.md) 
+[Product Messaging](#product-messaging) 
 
-- [Product Announcement Email](Writing%20Portfolio%208a2efc4a13654e409743f0fb09e20c6c.md)
-- [**Feature Copy in Different Styles**](Writing%20Portfolio%208a2efc4a13654e409743f0fb09e20c6c.md)
-
-<aside>
-💡
-
-*To browse sections within case studies, hover over the right edge of the page to open the full table of contents (desktop only)*
-
-</aside>
+- [Product Announcement Email](#product-announcement-email)
+- [**Feature Copy in Different Styles**](#feature-copy-in-different-styles)
 
 # Product Documentation
 
@@ -64,7 +57,7 @@ Key decisions included:
 - **Explaining layered routing logic**
 I separated traffic distribution into the two decision stages—selecting a virtual server pool, then selecting a server within that pool—and used scenarios and diagrams to explain how each stage affects routing.
     
-    ![image.png](image.png)
+    ![DNS-query-origin routing map with server pools in North America, Europe, and Asia-Pacific.](assets/dns-query.png)
     
     [Read: Load Distribution Methods →](https://docs.fortinet.com/document/fortiappsec-cloud/26.3.0/gslb-concept-guide/577773/load-distribution-methods)
     
@@ -74,11 +67,11 @@ I separated traffic distribution into the two decision stages—selecting a virt
     
     I introduced their shared purpose, compared their behavior, and then explained each workflow with diagrams to help readers understand when to use each feature and how both fit into GSLB’s monitoring functionality.
     
-    ![image.png](image%201.png)
+    ![Comparison table contrasting GSLB health checks and synthetic testing.](assets/application-visibility.png)
     
-    ![image.png](image%202.png)
+    ![Health check flow from background server probes to a DNS response identifying a healthy server.](assets/health-check.png)
     
-    ![image.png](image%203.png)
+    ![Synthetic testing flow showing endpoint probes and status reporting without changing DNS responses.](assets/synthetic-testing.png)
     
     [Read: Health Check and Synthetic Testing →](https://docs.fortinet.com/document/fortiappsec-cloud/26.3.0/gslb-concept-guide/605549/health-check-and-synthetic-testing)
     
@@ -86,7 +79,7 @@ I separated traffic distribution into the two decision stages—selecting a virt
     
     I introduced an uneven inbound-traffic problem, explained how DNS-based routing addresses it, and distinguished the deployment from VPN scaling and multisite load balancing. This helps readers recognize when the approach fits their environment.
     
-    ![image.png](image%204.png)
+    ![GSLB and FortiGate SD-WAN integration diagram showing DNS selection among three ISP links.](assets/sd-wan-diagram.png)
     
     [Read: FortiGate Integration for SD-WAN Inbound Optimization →](https://docs.fortinet.com/document/fortiappsec-cloud/26.3.0/gslb-concept-guide/321153/fortigate-integration-for-sd-wan-inbound-optimization)
     
@@ -124,19 +117,19 @@ Key decisions included:
 
 - **Establishing the end-to-end mental model.** Introduced how traffic flows through FortiAppSec Cloud before asking users to configure the application.
     
-    ![image.png](image%205.png)
+    ![FortiAppSec Cloud traffic-flow diagram showing load balancing, WAF inspection, and attack blocking.](assets/waf-onboarding-diagram.png)
     
 - **Adding context at decision points.** Explained the consequences of choices such as CDN enablement, cloud platform selection, and scrubbing-center selection instead of simply defining the controls. For example, the documentation distinguishes cost/compliance considerations from user-experience considerations when choosing CDN behavior.
     
-    ![image.png](image%206.png)
+    ![WAF onboarding guidance for CDN scope, cloud platform selection, and scrubbing-center settings.](assets/cdn.png)
     
 - **Extending the documentation beyond the product UI.** Explained the external DNS work required to actually route production traffic through the WAF, including different requirements for root and non-root domains.
     
-    ![image.png](image%207.png)
+    ![DNS setup excerpt covering connectivity testing and separate instructions for root and non-root domains.](assets/cname-ss.png)
     
 - **Documenting consequential edge cases.** Added dedicated guidance for multi-port applications, including a comparison of normal and multi-port onboarding and warnings about inherited CDN/region settings.
     
-    ![image.png](image%208.png)
+    ![Normal and multi-port WAF onboarding comparison, with a warning about inherited CDN and region settings.](assets/multiports.png)
     
 
 [Read: WAF Onboarding Wizard →](https://docs.fortinet.com/document/fortiappsec-cloud/latest/user-guide/032019/waf-onboarding-wizard)
@@ -167,23 +160,23 @@ Key decisions included:
 
 - **Visualizing the end-to-end authentication flow.** Iterated on the relationships between the browser, FortiAppSec Cloud, the identity provider, and the origin application before creating the final sequence diagram.
     
-    ![image.png](image%209.png)
+    ![Authentication Proxy sequence connecting the browser, identity provider, FortiAppSec Cloud, and origin servers.](assets/auth-proxy.png)
     
 - **Establishing the mental model before configuration.** Explained FortiAppSec Cloud’s role as the service provider and distinguished SAML from OIDC before introducing protocol-specific settings.
     
-    ![image.png](image%2010.png)
+    ![Supported Authentication Protocols excerpt explaining service-provider and identity-provider roles in SAML and OIDC.](assets/auth-protocols.png)
     
 - **Placing explanations at decision points.** Kept conceptual guidance alongside the settings where users needed it to understand their configuration choices.
     
-    ![image.png](image%2011.png)
+    ![Authentication rule setup guidance covering protocol tabs, priority order, and a SAML prerequisite.](assets/auth-rules.png)
     
 - **Highlighting dependencies and exceptions.** Documented identity provider prerequisites, conditional settings, objects configured on separate pages, and cases such as domains using nondefault ports.
     
-    ![image.png](image%2012.png)
+    ![Authentication rule settings for enabling rules, selecting path-match types, and using domains with nondefault ports.](assets/auth-settings.png)
     
 - **Explaining security controls through behavior and examples.** Showed how account lockout, session limits, and credential-stuffing defense work so readers could understand the effects of these settings.
     
-    ![image.png](image%2013.png)
+    ![Account lockout and per-user session limit settings with a failed-login threshold example.](assets/auth-details.png)
     
 
 [Read: Authentication Proxy →](https://docs.fortinet.com/document/fortiappsec-cloud/latest/user-guide/356340/authentication-proxy)

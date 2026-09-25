@@ -4,9 +4,9 @@ Alongside technical writing, I improve documentation workflows and build tools t
 
 Case studies:
 
-- [Document Builder](Systems%20Portfolio%20fe24a32b788c4b768656ee65003a7d83.md)
-- [Madcap Flare to Markdown Migration](Systems%20Portfolio%20fe24a32b788c4b768656ee65003a7d83.md)
-- [**Evaluating Documentation for AI Retrieval**](Systems%20Portfolio%20fe24a32b788c4b768656ee65003a7d83.md)
+- [Document Builder](#document-builder)
+- [Madcap Flare to Markdown Migration](#madcap-flare-to-markdown-migration)
+- [**Evaluating Documentation for AI Retrieval**](#evaluating-documentation-for-ai-retrieval)
 
 ## Document Builder
 
@@ -25,7 +25,7 @@ Docsite publishing and version control support are planned.
 
 ### The challenge
 
-As part of our transition from [MadCap Flare to Markdown](Systems%20Portfolio%20fe24a32b788c4b768656ee65003a7d83.md), we needed a way to validate source content and generate publication-ready outputs. 
+As part of our transition from [MadCap Flare to Markdown](#madcap-flare-to-markdown-migration), we needed a way to validate source content and generate publication-ready outputs. 
 
 Individual scripts provided parts of that workflow, but their execution order, inputs and release settings needed to be coordinated.
 
@@ -37,7 +37,7 @@ I mapped the required inputs, outputs and user flow, then defined the build sequ
 
 I adapted clean architecture principles to separate content rules and build workflows from the UI, file handling and tools, so individual processing steps could be changed independently. Mapping dependencies and user flows helped identify requirements and change impacts, while pre- and post-build checks assess publication readiness before previews become available.
 
-![Untitled_Artwork.png](99a96c45-0823-4a9b-bfb1-4e2b3ee23e7c.png)
+![Handwritten Document Builder planning notes showing project setup, pre-build checks, output generation, and post-build checks, branching to preview and proposed publishing on success or file-specific errors on failure. A layered architecture diagram maps document rules, build workflows, adapters, and external tools, with arrows distinguishing dependencies from execution.](assets/planning-notes.png)
 
 #### Key design decisions
 
@@ -104,9 +104,7 @@ The builder consolidates a workflow involving 20 scripts into one application, r
 
 I tested the builder on multiple real documentation projects and verified successful end-to-end generation of publication outputs. I also onboarded other writers, who have provided positive initial feedback and are adapting the scripts to their own project requirements. Broader adoption and time savings have not yet been measured.
 
-![Completed build showing successful validation, available HTML/PDF previews, and the generated Markdown publication ZIP.](image%2014.png)
-
-Completed build showing successful validation, available HTML/PDF previews, and the generated Markdown publication ZIP.
+![Completed build showing successful validation, available HTML/PDF previews, and the generated Markdown publication ZIP.](assets/document-builder-completed-build.png)
 
 GitHub is already used for version control. API publishing and enhanced GitHub integration, including batch commits across multiple versions, remain planned.
 
@@ -196,7 +194,7 @@ I translated the findings into recommendations for technical writers:
 - **Make topics easier to identify.** Use descriptive headings, consistent terminology, natural search language, and structured metadata.
 - **Keep essential information accessible and consistent.** Describe informative visuals with meaningful alt text and use shared snippets for repeated content.
 
-I presented the recommendations to writers across the organization. During the [**Flare-to-Markdown migration**](Systems%20Portfolio%20fe24a32b788c4b768656ee65003a7d83.md), I also added structured metadata, creating an opportunity to evaluate responses before and after the changes.
+I presented the recommendations to writers across the organization. During the [**Flare-to-Markdown migration**](#madcap-flare-to-markdown-migration), I also added structured metadata, creating an opportunity to evaluate responses before and after the changes.
 
 #### Evaluation design
 
