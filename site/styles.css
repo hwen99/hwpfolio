@@ -4,7 +4,7 @@
   color-scheme: light;
   --paper: #f3faf9;
   --ink: #001b2c;
-  --muted: #1f2b33;
+  --muted: #3c5464;
   --accent: #2a5d64;
   --line: #2D4D61;
   --card: #dfefee;
@@ -26,7 +26,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 17px/1.75 var(--sans);
+  font: 16px/1.6 var(--sans);
 }
 
 a {
@@ -40,7 +40,7 @@ a:hover {
 
 a:focus-visible,
 summary:focus-visible {
-  outline: 3px solid #b16930;
+  outline: 3px solid #ff609d;
   outline-offset: 5px;
 }
 
@@ -67,7 +67,6 @@ summary:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  border-bottom: 1px solid var(--line);
 }
 
 .wordmark {
@@ -87,8 +86,22 @@ summary:focus-visible {
 
 .site-header nav {
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
   gap: 26px;
   font-size: 14px;
+   width: 100%;
+  
+  /* Prevents padding from making the width exceed 100% (stops horizontal scrolling) */
+  box-sizing: border-box; 
+  
+  /* Creates the "height" and breathing room of the bar around the text */
+  padding: 15px 30px; 
+  
+  z-index: 1000;
+  border-bottom: 1px solid var(--line);
+  background-color: var(--paper);
 }
 
 .site-header nav a {
@@ -195,7 +208,7 @@ img {
 blockquote {
   margin: 28px 0;
   padding: 24px 28px;
-  border-left: 3px solid #8ea2aa;
+  border-left: 3px solid #dfefee;
   background: var(--card);
 }
 
@@ -204,7 +217,7 @@ blockquote p:last-child {
 }
 
 pre {
-  background: #f3faf9;
+  background: #edf0eb;
   padding: 22px;
   overflow: auto;
   border-radius: 6px;
@@ -301,7 +314,7 @@ th {
 
 .home main > p:nth-of-type(2) {
   font-family: var(--sans);
-  font-size: clamp(23px, 3vw, 34px);
+  font-size: clamp(18px, 3vw, 24px);
   max-width: 700px;
   line-height: 1.45;
   margin-bottom: 70px;
@@ -310,7 +323,7 @@ th {
 .home h2 {
   border-top: 0;
   padding-top: 0;
-  font-size: 14px;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-top: 60px;
@@ -342,11 +355,11 @@ th {
 }
 
 .portfolio-card:nth-child(2) {
-  background: #f1ede5;
+  background: #dfefee;
 }
 
 .portfolio-card:hover {
-  background: #e3eadd;
+  background: #c0f1ee;
   transform: translateY(-3px);
 }
 
@@ -364,7 +377,7 @@ th {
 }
 
 .portfolio-card p {
-  font-size: 16px;
+  font-size: 18spx;
   color: var(--muted);
   line-height: 1.65;
 }
@@ -668,7 +681,7 @@ footer div {
 .card-studies .study-group h4 {
   text-transform: none;
   letter-spacing: 0;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   margin: 26px 0 8px;
 }
@@ -704,5 +717,5 @@ footer div {
 }
 
 .portfolio-card:nth-child(2)[open]:hover {
-  background: #dfefee;
+  background: var(--card);
 }
