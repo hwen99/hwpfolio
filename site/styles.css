@@ -203,6 +203,17 @@ img {
   height: auto;
   margin: 28px auto;
   border-radius: 6px;
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+img.is-expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  z-index: 1000;
+  cursor: zoom-out;
 }
 
 blockquote {
