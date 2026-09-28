@@ -4,8 +4,17 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "format": "prettier --write \"site/**/*.{css,json}\" \"scripts/**/*.mjs\" package.json .prettierrc.json .github/workflows/pages.yml",
+    "format:check": "prettier --check \"site/**/*.{css,json}\" \"scripts/**/*.mjs\" package.json .prettierrc.json .github/workflows/pages.yml"
   },
-  "engines": { "node": ">=22" },
-  "dependencies": { "marked": "18.0.14" }
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "marked": "18.0.14"
+  },
+  "devDependencies": {
+    "prettier": "3.9.9"
+  }
 }

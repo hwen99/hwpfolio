@@ -21,7 +21,7 @@ Case studies by type:
 
 Technical guides and explanations that help cybersecurity B2B SaaS customers understand product features, make configuration decisions, and complete setup.
 
-## Global Server Load Balancer Concept Guide
+## Concept guide: Global server load balancing
 
 Conceptual documentation · Information architecture 
 
@@ -88,7 +88,7 @@ I separated traffic distribution into the two decision stages—selecting a virt
 
 Positive feedback from customers and sales teams indicated that the guide was useful in supporting product understanding and sales conversations.
 
-## Web Application Firewall Onboarding Workflow
+## Onboarding documentation: Web application firewall
 
 Procedural documentation · Configuration guidance 
 
@@ -134,7 +134,7 @@ Key decisions included:
 
 [Read: WAF Onboarding Wizard →](https://docs.fortinet.com/document/fortiappsec-cloud/latest/user-guide/032019/waf-onboarding-wizard)
 
-## Authentication Proxy Feature
+## Feature documentation: Authentication Proxy
 
 New feature documentation · Configuration guidance
 
@@ -185,7 +185,7 @@ Key decisions included:
 
 Content that explores how audience, tone, and context shape a message.
 
-## Product Announcement Email
+## Customer email: Communicating a product transition
 
 Customer communications ·  Release messaging
 
@@ -257,7 +257,7 @@ The following is my proposed draft for one of the customer announcement emails. 
 > The [Unified Security Platform] Team
 > 
 
-## Feature Copy in Different Styles
+## Product copy: Adapting tone and style
 
 Self-directed exercise · Product copywriting
 

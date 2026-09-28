@@ -1,4 +1,4 @@
-# Content Systems
+# Documentation Systems
 
 Alongside technical writing, I improve documentation workflows and build tools that make content easier to manage, clearer for readers, and better suited to AI systems.
 <!--
@@ -8,7 +8,7 @@ Case studies:
 - [Madcap Flare to Markdown Migration](#madcap-flare-to-markdown-migration)
 - [**Evaluating Documentation for AI Retrieval**](#evaluating-documentation-for-ai-retrieval)
 -->
-## Document Builder
+## Document Builder: Developing a documentation publishing tool
 
 AI-assisted software development · Docs-as-code 
 
@@ -108,7 +108,7 @@ I tested the builder on multiple real documentation projects and verified succes
 
 GitHub is already used for version control. API publishing and enhanced GitHub integration, including batch commits across multiple versions, remain planned.
 
-## Madcap Flare to Markdown Migration
+## Flare-to-Markdown migration: Standardizing the publishing workflow
 
 Process Improvement · Documentation tooling 
 
@@ -121,7 +121,7 @@ Process Improvement · Documentation tooling
 - **Tools:** MadCap Flare, Markdown, Python, Git/GitHub
 - **Timeline:** June 1, 2026 –June 28, 2026
 
-This project demonstrates how I approach content systems: identify recurring friction, turn informal conventions into repeatable workflows, and automate quality checks where manual review does not scale.
+This project demonstrates how I approach documentation systems: identify recurring friction, turn informal conventions into repeatable workflows, and automate quality checks where manual review does not scale.
 
 ### The challenge
 
@@ -160,11 +160,11 @@ I enacted the following:
 
 A subsequent migration of similar scope took approximately one week instead of three.
 
-The processing and validation scripts also reduced the time required for recurring documentation checks by an estimated **75–90%** and caught migration issues before publication. This project demonstrates how I approach content systems: identify recurring friction, turn informal conventions into repeatable workflows, and automate quality checks where manual review does not scale.
+The processing and validation scripts also reduced the time required for recurring documentation checks by an estimated **75–90%** and caught migration issues before publication. This project demonstrates how I approach documentation systems: identify recurring friction, turn informal conventions into repeatable workflows, and automate quality checks where manual review does not scale.
 
 The result was a more reliable process that was easier to use for subsequent migrations and ongoing documentation work.
 
-## **Evaluating Documentation for AI Retrieval**
+## AI answer evaluation: Content structure and retrieval
 
 Knowledge architecture · AI retrieval evaluation
 

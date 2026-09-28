@@ -1,6 +1,6 @@
 # Hannah Wen
 
-**Technical Writing & Content Systems**
+**Technical Writing & Documentation Systems**
 
 I make complex information easier to understand and manage.
 
@@ -8,7 +8,7 @@ I make complex information easier to understand and manage.
 
 ---
 
-| [Writing](writing.md)                                                     | [Content Systems](systems.md)                   |
+| [Writing](writing.md)                                                     | [Documentation Systems](systems.md)                   |
 | ------------------------------------------------------------------------- | ----------------------------------------------- |
 | Guides, customer communications, and product copy, optimized for clarity. | Workflows and tools that support documentation. |
 
