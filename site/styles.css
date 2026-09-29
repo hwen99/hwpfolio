@@ -2,12 +2,12 @@
 
 :root {
   color-scheme: light;
-  --paper: #f3faf9;
-  --ink: #001b2c;
-  --muted: #3c5464;
-  --accent: #2a5d64;
-  --line: #2D4D61;
-  --card: #dfefee;
+  --paper: #f3f3f3;
+  --ink: #26202b;
+  --muted: #5d5164;
+  --accent: #641e35;
+  --line: #a6a8a8;
+  --card: #ebe6eb;
   --sans: Calibri, 'Segoe UI', Arial, sans-serif;
 }
 
@@ -137,6 +137,10 @@ main {
   margin-inline: auto;
 }
 
+.overview-intro {
+  border-bottom: 1px solid var(--line);
+}
+
 /* Typography and content */
 
 h1,
@@ -149,7 +153,7 @@ h4 {
 }
 
 h1 {
-  font-family: Georgia, serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 400;
   font-size: clamp(38px, 5vw, 60px);
   margin: 0 0 28px;
@@ -161,8 +165,6 @@ h2 {
   font-weight: 700;
   letter-spacing: -0.02em;
   margin: 64px 0 24px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
   scroll-margin-top: 30px;
 }
 
@@ -279,7 +281,7 @@ th {
 .outline summary {
   font-weight: 650;
   cursor: pointer;
-  margin-bottom: 18px;
+  margin-bottom: 18px var(--line);
 }
 
 .outline nav {
@@ -366,11 +368,11 @@ th {
 }
 
 .portfolio-card:nth-child(2) {
-  background: #dfefee;
+  background: var(--card);
 }
 
 .portfolio-card:hover {
-  background: #c0f1ee;
+  background: #bbf1e8;
   transform: translateY(-3px);
 }
 
@@ -381,7 +383,7 @@ th {
 }
 
 .portfolio-card h3 {
-  font-family: Georgia, serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 400;
   font-size: 30px;
   margin: 28px 0 18px;
@@ -619,12 +621,18 @@ footer div {
 .study-link {
   display: block;
   padding: 22px 0;
-  border-bottom: 1px solid var(--line);
   text-decoration: none;
   font-weight: 600;
 }
 
-.study-link:hover span {
+.study-link h6 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.study-link:hover h6 {
   text-decoration: underline;
 }
 

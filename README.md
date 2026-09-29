@@ -19,6 +19,9 @@ To explore the source, start with the [writing case studies](writing.md), [syste
 
 ## Editing and formatting
 
+- Run `npm run dev` and open `http://127.0.0.1:4173` for a local preview. It builds the pages once and serves `site/styles.css` directly: save CSS changes and refresh your browser to see them, with no rebuild or file watcher. Stop the preview with Ctrl+C.
+- After Markdown or page-template changes, run `npm run build` in another terminal and refresh, or restart the preview.
+- `_site/site/styles.css` is a generated publishing copy; always edit `site/styles.css` instead.
 - Edit `site/styles.css` for colors, fonts, spacing, and responsive layouts. Section comments identify the main areas.
 - Edit `scripts/build.mjs` for page structure and navigation.
 - Edit the Markdown files for page content and `site/study-*.json` for study titles and summaries.

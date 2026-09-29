@@ -28,7 +28,8 @@ for (const page of pages.filter((page) => page.kind !== 'home')) {
   const sections = [...source.matchAll(/^(#{1,2}) (.+)$/gm)];
   const studies = [];
   let group = page.kind === 'writing' ? 'Writing' : 'Documentation Systems';
-  let overview = source.slice(0, sections[1]?.index ?? source.length);
+  const intro = source.slice(0, sections[1]?.index ?? source.length).trim();
+  let overview = `<div class="overview-intro">\n\n${intro}\n\n</div>\n\n`;
   for (let index = 1; index < sections.length; index++) {
     const section = sections[index];
     const end = sections[index + 1]?.index ?? source.length;
@@ -54,7 +55,7 @@ for (const page of pages.filter((page) => page.kind !== 'home')) {
     if (!study.description) throw new Error(`Missing study summary: ${id}`);
     studies.push(study);
     overview += `<a class="study-link" id="${id}" href="${study.output}">
-<span>${escape(title)}</span>
+<h6>${escape(title)}</h6>
 <small>${escape(study.description)}</small>
 </a>\n\n`;
   }

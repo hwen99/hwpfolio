@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "node scripts/preview.mjs",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
     "format": "prettier --write \"site/**/*.{css,json}\" \"scripts/**/*.mjs\" package.json .prettierrc.json .github/workflows/pages.yml",
