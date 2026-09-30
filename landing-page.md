@@ -1,6 +1,6 @@
 # Hannah Wen
 
-**Technical Writing & Documentation Systems**
+**Content engineer and technical writer**
 
 I make complex information easier to understand and manage.
 
