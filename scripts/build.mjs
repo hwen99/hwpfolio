@@ -197,6 +197,7 @@ for (const page of pages) {
 <title>${page.title} — Technical Writing &amp; Documentation Systems</title>
 <meta name="description" content="Hannah Wen’s portfolio of technical writing, product documentation, and documentation systems.">
 <link rel="stylesheet" href="site/styles.css">
+<script src="site/lightbox.js" defer></script>
 </head>
 <body class="${page.kind}">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -205,8 +206,13 @@ for (const page of pages) {
 </header>
 <div class="page-shell">${outline}<main id="main">${content}</main>
 </div>
+<dialog class="lightbox" aria-label="Expanded image">
+<button class="lightbox-close" type="button" aria-label="Close expanded image">×</button>
+<img src="" alt="Expanded image">
+<p class="lightbox-caption"></p>
+</dialog>
 <footer>
-<span>Hannah Wen</span>
+<span>2026 Hannah Wen</span>
 <div>
 <a href="mailto:wenhannahh@gmail.com">Email</a>
 <a href="https://www.linkedin.com/in/wenhannah/">LinkedIn</a>

@@ -6,7 +6,7 @@
   --ink: #26202b;
   --muted: #5d5164;
   --accent: #641e35;
-  --line: #a6a8a8;
+  --line: #bbbbbb;
   --card: #ebe6eb;
   --sans: Calibri, 'Segoe UI', Arial, sans-serif;
 }
@@ -91,14 +91,14 @@ summary:focus-visible {
   left: 0;
   gap: 26px;
   font-size: 14px;
-   width: 100%;
-  
+  width: 100%;
+
   /* Prevents padding from making the width exceed 100% (stops horizontal scrolling) */
-  box-sizing: border-box; 
-  
+  box-sizing: border-box;
+
   /* Creates the "height" and breathing room of the bar around the text */
-  padding: 15px 30px; 
-  
+  padding: 15px 30px;
+
   z-index: 1000;
   border-bottom: 1px solid var(--line);
   background-color: var(--paper);
@@ -209,13 +209,76 @@ img {
   transition: transform 0.25s ease;
 }
 
-img.is-expanded {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(2);
-  z-index: 1000;
-  cursor: zoom-out;
+main img[role='button']:focus-visible {
+  outline: 3px solid #ff609d;
+  outline-offset: 5px;
+}
+
+.lightbox {
+  width: min(94vw, 1400px);
+  max-width: none;
+  height: min(92vh, 1000px);
+  max-height: none;
+  margin: auto;
+  padding: 48px 24px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.lightbox[open] {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  place-items: center;
+}
+
+.lightbox::backdrop {
+  background: rgb(20 16 22 / 82%);
+}
+
+.lightbox img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0;
+  border-radius: 4px;
+  cursor: default;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: 32px/1 var(--sans);
+}
+
+.lightbox-close:hover {
+  color: var(--accent);
+}
+
+.lightbox-close:focus-visible {
+  outline: 3px solid #ff609d;
+  outline-offset: 1px;
+}
+
+.lightbox-caption {
+  max-width: 80ch;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
 }
 
 blockquote {
@@ -271,10 +334,10 @@ th {
   font-size: 13px;
   align-self: start;
   position: sticky;
-  top: 32px;
+  top: 76px;
   border-left: 1px solid var(--line);
   padding-left: 20px;
-  max-height: calc(100vh - 64px);
+  max-height: calc(100vh - 108px);
   overflow-y: auto;
 }
 
@@ -500,6 +563,9 @@ footer div {
   .portfolio-card {
     transition: none;
   }
+  img {
+    transition: none;
+  }
   .portfolio-card:hover {
     transform: none;
   }
@@ -616,6 +682,11 @@ footer div {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.breadcrumb a,
+.breadcrumb a:hover {
+  text-decoration: none;
 }
 
 .study-link {

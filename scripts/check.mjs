@@ -7,6 +7,8 @@ const pages = new Map(
 );
 let count = 0;
 for (const [name, html] of pages) {
+  if (!html.includes('<dialog class="lightbox"') || !html.includes('site/lightbox.js'))
+    throw new Error(`${name}: missing image lightbox`);
   if (name === 'index.html' && (html.match(/<details class="portfolio-card">/g) || []).length !== 2)
     throw new Error('Expected two expandable landing-page portfolio cards');
   if ((html.match(/<h1\b/g) || []).length !== 1)
