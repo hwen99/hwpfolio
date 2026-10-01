@@ -18,7 +18,7 @@ I’m a technical writer at Fortinet with over three years of experience explain
 
 Previously, I worked across UX, visual design, data analysis, and database administration at AI startup Dropbase (YC W20) and social media startup Nanogram.
 
-I hold an Honours Bachelor of Science from the University of Toronto, with a major in statistics and minors in mathematics and visual studies.
+At the University of Toronto, I studied everything from probability proofs and software design to the critical study of art and visual culture. This interdisciplinary education primed me to approach documentation as both a technical system and a designed experience.
 
 **Knowledge domains**
 
