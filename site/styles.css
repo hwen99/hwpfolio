@@ -8,7 +8,27 @@
   --accent: #641e35;
   --line: #bbbbbb;
   --card: #ebe6eb;
+  --card-hover: #bbf1e8;
+  --code-background: #edf0eb;
+  --focus: #ff609d;
+  --quote-line: #9bcfc7;
+  --backdrop: rgb(20 16 22 / 82%);
   --sans: Calibri, 'Segoe UI', Arial, sans-serif;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #171419;
+  --ink: #f2edf3;
+  --muted: #bdb1c1;
+  --accent: #eca4bd;
+  --line: #4c424f;
+  --card: #262129;
+  --card-hover: #25413d;
+  --code-background: #201c23;
+  --focus: #ff78ad;
+  --quote-line: #75c9bb;
+  --backdrop: rgb(5 4 6 / 88%);
 }
 
 /* Base styles and accessibility */
@@ -40,7 +60,7 @@ a:hover {
 
 a:focus-visible,
 summary:focus-visible {
-  outline: 3px solid #ff609d;
+  outline: 3px solid var(--focus);
   outline-offset: 5px;
 }
 
@@ -48,7 +68,7 @@ summary:focus-visible {
   position: absolute;
   top: -100px;
   left: 1rem;
-  background: white;
+  background: var(--card);
   padding: 1rem;
   z-index: 5;
 }
@@ -111,6 +131,29 @@ summary:focus-visible {
 .site-header nav a[aria-current] {
   text-decoration: underline;
   text-decoration-thickness: 2px;
+}
+
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  margin: -5px 0 -5px auto;
+  padding: 0;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  font: 19px/1 var(--sans);
+}
+
+.theme-toggle:hover {
+  background: var(--card-hover);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
 }
 
 /* Page layout */
@@ -210,7 +253,7 @@ img {
 }
 
 main img[role='button']:focus-visible {
-  outline: 3px solid #ff609d;
+  outline: 3px solid var(--focus);
   outline-offset: 5px;
 }
 
@@ -235,7 +278,7 @@ main img[role='button']:focus-visible {
 }
 
 .lightbox::backdrop {
-  background: rgb(20 16 22 / 82%);
+  background: var(--backdrop);
 }
 
 .lightbox img {
@@ -268,7 +311,7 @@ main img[role='button']:focus-visible {
 }
 
 .lightbox-close:focus-visible {
-  outline: 3px solid #ff609d;
+  outline: 3px solid var(--focus);
   outline-offset: 1px;
 }
 
@@ -284,7 +327,7 @@ main img[role='button']:focus-visible {
 blockquote {
   margin: 28px 0;
   padding: 24px 28px;
-  border-left: 3px solid #dfefee;
+  border-left: 3px solid var(--quote-line);
   background: var(--card);
 }
 
@@ -293,7 +336,7 @@ blockquote p:last-child {
 }
 
 pre {
-  background: #edf0eb;
+  background: var(--code-background);
   padding: 22px;
   overflow: auto;
   border-radius: 6px;
@@ -435,7 +478,7 @@ th {
 }
 
 .portfolio-card:hover {
-  background: #bbf1e8;
+  background: var(--card-hover);
   transform: translateY(-3px);
 }
 
@@ -530,7 +573,9 @@ footer div {
     gap: 16px;
   }
   .site-header nav {
-    gap: 20px;
+    gap: 14px;
+    padding-inline: 16px;
+    font-size: 12px;
   }
   .wordmark span {
     font-size: 10px;

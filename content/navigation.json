@@ -1,0 +1,44 @@
+{
+  "$schema": "./navigation.schema.json",
+  "collections": [
+    {
+      "kind": "systems",
+      "label": "Documentation Systems",
+      "description": "Workflows and tools that support documentation.",
+      "source": "content/documentation-systems/index.md",
+      "output": "systems.html",
+      "groups": [
+        {
+          "label": "Documentation Systems",
+          "topics": [
+            "content/documentation-systems/document-builder.md",
+            "content/documentation-systems/flare-to-markdown-migration.md",
+            "content/documentation-systems/ai-retrieval-evaluation.md"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "writing",
+      "label": "Technical Writing",
+      "description": "Guides, customer communications, and product copy, optimized for clarity.",
+      "source": "content/technical-writing/index.md",
+      "output": "writing.html",
+      "groups": [
+        {
+          "label": "Documentation Case Studies",
+          "topics": [
+            "content/technical-writing/documentation-case-studies/global-server-load-balancing.md",
+            "content/technical-writing/documentation-case-studies/web-application-firewall.md",
+            "content/technical-writing/documentation-case-studies/authentication-proxy.md",
+            "content/technical-writing/documentation-case-studies/customer-transition-email.md"
+          ]
+        },
+        {
+          "label": "Selected Writing Samples",
+          "topics": ["content/technical-writing/selected-writing-samples/product-copy-styles.md"]
+        }
+      ]
+    }
+  ]
+}

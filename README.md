@@ -15,7 +15,9 @@ The case studies explain the problem, my contribution, the decisions behind the 
 
 The portfolio itself uses a docs-as-code workflow: content is authored in Markdown, versioned in Git, and published through GitHub Actions to GitHub Pages. A shared template keeps presentation separate from content, and automated checks verify local links, section targets, and image alt text before deployment.
 
-To explore the source, start with the [writing case studies](writing.md), [systems case studies](systems.md), or [publishing workflow](.github/workflows/pages.yml).
+To explore the source, start with the [content map](content/navigation.json), the [technical writing topics](content/technical-writing), the [documentation systems topics](content/documentation-systems), or the [publishing workflow](.github/workflows/pages.yml).
+
+Each case study is an independent Markdown topic with validated YAML metadata. The content map defines collection order and hierarchy, while stable `topic:` references connect related topics without coupling links to filenames or headings.
 
 ## Editing and formatting
 
@@ -24,7 +26,8 @@ To explore the source, start with the [writing case studies](writing.md), [syste
 - `_site/site/styles.css` is a generated publishing copy; always edit `site/styles.css` instead.
 - Edit `site/styles.css` for colors, fonts, spacing, and responsive layouts. Section comments identify the main areas.
 - Edit `scripts/build.mjs` for page structure and navigation.
-- Edit the Markdown files for page content and `site/study-*.json` for study titles and summaries.
+- Edit `content/index.md` for the homepage, collection `index.md` files for overview introductions, and individual topic files for case studies.
+- Edit `content/navigation.json` to reorder topics or change the collection hierarchy. Topic titles, summaries, IDs, audiences, tools, and project types belong in each topic’s YAML frontmatter and are validated against `content/topic.schema.json` during every build.
 - Run `npm run format` to apply consistent spacing and indentation to the CSS, JavaScript, JSON, and publishing configuration.
 - Run `npm run build` and `npm run check` to regenerate and verify the website. Generated files in `_site/` are overwritten by the build.
 - Run `npm run format:check` to check formatting without changing files.

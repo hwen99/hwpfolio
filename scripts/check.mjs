@@ -1,7 +1,13 @@
 import { readFile, access, readdir } from 'node:fs/promises';
 import path from 'node:path';
+const { collections } = JSON.parse(await readFile('content/navigation.json', 'utf8'));
+const expectedPages =
+  1 +
+  collections.length +
+  collections.flatMap((collection) => collection.groups.flatMap((group) => group.topics)).length;
 const names = (await readdir('_site')).filter((name) => name.endsWith('.html'));
-if (names.length !== 11) throw new Error('Expected 3 overview pages and 8 case study pages');
+if (names.length !== expectedPages)
+  throw new Error(`Expected ${expectedPages} pages from the content map, found ${names.length}`);
 const pages = new Map(
   await Promise.all(names.map(async (name) => [name, await readFile(`_site/${name}`, 'utf8')])),
 );
@@ -9,6 +15,8 @@ let count = 0;
 for (const [name, html] of pages) {
   if (!html.includes('<dialog class="lightbox"') || !html.includes('site/lightbox.js'))
     throw new Error(`${name}: missing image lightbox`);
+  if (!html.includes('class="theme-toggle"') || !html.includes('site/theme.js'))
+    throw new Error(`${name}: missing color theme control`);
   if (name === 'index.html' && (html.match(/<details class="portfolio-card">/g) || []).length !== 2)
     throw new Error('Expected two expandable landing-page portfolio cards');
   if ((html.match(/<h1\b/g) || []).length !== 1)

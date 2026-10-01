@@ -1,24 +1,21 @@
-import { readFile, writeFile, mkdir, cp } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, cp, readdir } from 'node:fs/promises';
+import Ajv2020 from 'ajv/dist/2020.js';
 import { Marked } from 'marked';
+import YAML from 'yaml';
 
-const collectionsConfig = [
-  {
-    kind: 'systems',
-    label: 'Documentation Systems',
-    description: 'Workflows and tools that support documentation.',
-    source: 'systems.md',
-    output: 'systems.html',
-  },
-  {
-    kind: 'writing',
-    label: 'Technical Writing',
-    description: 'Guides, customer communications, and product copy, optimized for clarity.',
-    source: 'writing.md',
-    output: 'writing.html',
-  },
-];
+const ajv = new Ajv2020({ allErrors: true });
+const navigation = JSON.parse(await readFile('content/navigation.json', 'utf8'));
+const navigationSchema = JSON.parse(await readFile('content/navigation.schema.json', 'utf8'));
+const validateNavigation = ajv.compile(navigationSchema);
+if (!validateNavigation(navigation)) {
+  const errors = validateNavigation.errors
+    .map((error) => `${error.instancePath || '/'} ${error.message}`)
+    .join('; ');
+  throw new Error(`Invalid content map: ${errors}`);
+}
+const { collections: collectionsConfig } = navigation;
 const pages = [
-  { source: 'landing-page.md', output: 'index.html', title: 'Hannah Wen', kind: 'home' },
+  { source: 'content/index.md', output: 'index.html', title: 'Hannah Wen', kind: 'home' },
   ...collectionsConfig.map((collection) => ({
     ...collection,
     title: `${collection.label} Portfolio`,
@@ -38,58 +35,89 @@ const slug = (value) =>
     .replace(/[^\p{L}\p{N}\s-]/gu, '')
     .trim()
     .replace(/\s+/g, '-');
+const topicSchema = JSON.parse(await readFile('content/topic.schema.json', 'utf8'));
+const validateTopicMetadata = ajv.compile(topicSchema);
+const requiredSections = {
+  'case-study': ['Overview', 'The challenge', 'My approach'],
+  'writing-sample': ['Overview'],
+};
+const readTopic = async (source) => {
+  const raw = await readFile(source, 'utf8');
+  const frontmatter = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+  if (!frontmatter) throw new Error(`${source}: missing YAML frontmatter`);
+  const metadata = YAML.parse(frontmatter[1]);
+  if (!validateTopicMetadata(metadata)) {
+    const errors = validateTopicMetadata.errors
+      .map((error) => `${error.instancePath || '/'} ${error.message}`)
+      .join('; ');
+    throw new Error(`${source}: invalid topic metadata: ${errors}`);
+  }
+  const body = raw.slice(frontmatter[0].length).trim();
+  if (/^# /m.test(body)) throw new Error(`${source}: title must come from frontmatter`);
+  const sections = [...body.matchAll(/^### (.+)$/gm)].map((match) => match[1]);
+  for (const section of requiredSections[metadata.type]) {
+    if (!sections.includes(section))
+      throw new Error(`${source}: missing required section “${section}”`);
+  }
+  return { metadata, body };
+};
 const collections = new Map();
-const studySummaries = JSON.parse(await readFile('site/study-summaries.json', 'utf8'));
-// Stable identifiers keep existing URLs and cross-study links intact when titles change.
-const studyTitles = JSON.parse(await readFile('site/study-titles.json', 'utf8'));
+const topicsById = new Map();
+const topicSources = new Set();
 for (const page of pages.filter((page) => page.kind !== 'home')) {
-  const source = (await readFile(page.source, 'utf8'))
-    .replace('{{collectionTitle}}', page.label)
-    .replace(/<!--[\s\S]*?-->/g, '');
-  const sections = [...source.matchAll(/^(#{1,2}) (.+)$/gm)];
+  const intro = (await readFile(page.source, 'utf8')).replace('{{collectionTitle}}', page.label);
   const studies = [];
-  let group = page.label;
-  const intro = source.slice(0, sections[1]?.index ?? source.length).trim();
-  let overview = `<div class="overview-intro">\n\n${intro}\n\n</div>\n\n`;
-  for (let index = 1; index < sections.length; index++) {
-    const section = sections[index];
-    const end = sections[index + 1]?.index ?? source.length;
-    if (section[1] === '#') {
-      group = section[2];
-      overview += source.slice(section.index, end).replace(/^# /, '## ');
-      continue;
-    }
-    const title = section[2].replaceAll('**', '');
-    const id = Object.entries(studyTitles).find(([, name]) => name === title)?.[0] ?? slug(title);
-    const body = source.slice(section.index, end).trim();
-    const study = {
-      title,
-      id,
-      group,
-      output: `${page.kind}-${id}.html`,
-      kind: 'study',
-      parent: page,
-      source: page.source,
-      markdown: body.replace(/^(#{2,6}) /gm, (hashes) => hashes.slice(1)),
-    };
-    study.description = studySummaries[id];
-    if (!study.description) throw new Error(`Missing study summary: ${id}`);
-    studies.push(study);
-    overview += `<a class="study-link" id="${id}" href="${study.output}">
-<h6>${escape(title)}</h6>
+  let overview = `<div class="overview-intro">\n\n${intro.trim()}\n\n</div>\n\n`;
+  for (const group of page.groups) {
+    if (page.groups.length > 1) overview += `## ${group.label}\n\n`;
+    for (const topicSource of group.topics) {
+      if (topicSources.has(topicSource)) throw new Error(`Duplicate topic source: ${topicSource}`);
+      topicSources.add(topicSource);
+      const { metadata, body } = await readTopic(topicSource);
+      if (topicsById.has(metadata.id)) throw new Error(`Duplicate topic ID: ${metadata.id}`);
+      const study = {
+        title: metadata.title,
+        id: metadata.id,
+        group: group.label,
+        description: metadata.summary,
+        metadata,
+        output: `${page.kind}-${metadata.id}.html`,
+        kind: 'study',
+        parent: page,
+        source: topicSource,
+        markdown: `# ${metadata.title}\n\n${body}`,
+      };
+      studies.push(study);
+      topicsById.set(study.id, study);
+      overview += `<a class="study-link" id="${study.id}" href="${study.output}">
+<h6>${escape(study.title)}</h6>
 <small>${escape(study.description)}</small>
 </a>\n\n`;
+    }
   }
   page.markdown = overview;
   collections.set(page.kind, studies);
 }
+const mappedMarkdown = new Set([
+  'content/index.md',
+  ...collectionsConfig.map((collection) => collection.source),
+  ...topicSources,
+]);
+const contentMarkdown = (await readdir('content', { recursive: true }))
+  .filter((file) => file.endsWith('.md'))
+  .map((file) => `content/${file}`);
+for (const source of contentMarkdown) {
+  if (!mappedMarkdown.has(source))
+    throw new Error(`Markdown source is not in the content map: ${source}`);
+}
 pages.push(...[...collections.values()].flat());
-const studyList = (studies, showCaptions = true) =>
-  [...new Set(studies.map((study) => study.group))]
+const studyList = (studies, showCaptions = true) => {
+  const groups = [...new Set(studies.map((study) => study.group))];
+  return groups
     .map(
       (group) =>
         `<section class="study-group">
-<h4>${escape(group)}</h4>
+${groups.length > 1 ? `<h4>${escape(group)}</h4>` : ''}
 <ul>${studies
           .filter((study) => study.group === group)
           .map(
@@ -104,6 +132,7 @@ const studyList = (studies, showCaptions = true) =>
 </section>`,
     )
     .join('');
+};
 await mkdir('_site', { recursive: true });
 await cp('assets', '_site/assets', { recursive: true });
 await cp('site', '_site/site', { recursive: true });
@@ -123,10 +152,11 @@ for (const page of pages) {
         return `<h${depth} id="${id}">${text}</h${depth}>\n`;
       },
       link({ href, title, tokens }) {
-        const related = collections
-          .get(page.parent?.kind || page.kind)
-          ?.find((study) => href === `#${study.id}`);
-        if (related) href = related.output;
+        if (href.startsWith('topic:')) {
+          const topic = topicsById.get(href.slice('topic:'.length));
+          if (!topic) throw new Error(`${page.source}: unknown topic reference ${href}`);
+          href = topic.output;
+        }
         for (const linkedPage of pages) {
           if (href === linkedPage.source || href.startsWith(`${linkedPage.source}#`))
             href = href.replace(linkedPage.source, linkedPage.output);
@@ -158,8 +188,6 @@ for (const page of pages) {
         .join('\n')}\n</div>\n`,
     );
     source = source.replace(/^# My work/m, '## My work').replace(/^# About me/m, '## About me');
-  } else {
-    source = source.replace(/^# (Product Documentation|Product Messaging)$/gm, '## $1');
   }
   if (page.kind === 'study') source = source.replace(/\r?\n---[ \t]*\r?\n/, '\n');
   const breadcrumb = page.parent
@@ -203,13 +231,26 @@ for (const page of pages) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${page.title} — ${escape(portfolioTitle)}</title>
 <meta name="description" content="Hannah Wen’s portfolio of technical writing, product documentation, and documentation systems.">
+<script>
+try {
+  const savedTheme = localStorage.getItem('theme');
+  document.documentElement.dataset.theme =
+    savedTheme === 'light' || savedTheme === 'dark'
+      ? savedTheme
+      : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+} catch {
+  document.documentElement.dataset.theme =
+    matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+</script>
 <link rel="stylesheet" href="site/styles.css">
+<script src="site/theme.js" defer></script>
 <script src="site/lightbox.js" defer></script>
 </head>
 <body class="${page.kind}">
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-<nav aria-label="Main navigation">${nav}</nav>
+<nav aria-label="Main navigation">${nav}<button class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme"><span aria-hidden="true">◐</span></button></nav>
 </header>
 <div class="page-shell">${outline}<main id="main">${content}</main>
 </div>
