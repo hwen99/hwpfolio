@@ -18,7 +18,7 @@ Process Improvement · Documentation tooling
 
 ---
 
-### Overview
+## Overview
 
 - **Deliverable:** Documentation migration and standardized publishing workflow
 - **Audience:** Technical writing team members
@@ -27,7 +27,7 @@ Process Improvement · Documentation tooling
 
 This project demonstrates how I approach documentation systems: identify recurring friction, turn informal conventions into repeatable workflows, and automate quality checks where manual review does not scale.
 
-### The challenge
+## The challenge
 
 At the beginning of June, I learned that my MadCap Flare subscription would expire at the end of the month. Because I had previously proposed migrating the documentation to Markdown, I was asked to complete the migration before the subscription ended.
 
@@ -51,7 +51,7 @@ These efforts provided a useful starting point, but the workflow still relied he
 - **Inconsistent table formatting:** Tables did not always convert or render correctly.
 - **Broken links in PDF output:** PDF generation combined all Markdown files into a single file before export, but links to content in subfolders were not updated to account for the new file structure.
 
-### My approach
+## My approach
 
 I enacted the following:
 
@@ -60,7 +60,7 @@ I enacted the following:
 - **Added automated validation.** Built Python checks for broken links, duplicate or missing page IDs, mojibake and encoding issues, and improperly converted variables. Added these checks to the publishing workflow.
 - **Standardized the workflow.** Defined a consistent process for editing, validation, and output generation. Created internal documentation and a shared GitHub repository containing the tools, configuration, and instructions for other writers.
 
-### Results
+## Results
 
 A subsequent migration of similar scope took approximately one week instead of three.
 

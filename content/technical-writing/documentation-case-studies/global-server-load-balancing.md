@@ -17,7 +17,7 @@ Conceptual documentation · Information architecture
 
 ---
 
-### Overview
+## Overview
 
 - **Role:** Sole Technical Writer
 - **Deliverable:** Concept guide
@@ -26,13 +26,13 @@ Conceptual documentation · Information architecture
 - **Timeline:** Proposed Fall 2025 · Initial approval Jan 2026 · Content direction approved Mar 2026 · Completed Jul 2026
 - **Business context:** The guide was developed for a growing product area, with sales of bundles including GSLB up 47% year over year.
 
-### The challenge
+## The challenge
 
 FortiAppSec Cloud is primarily a cloud-based web application firewall, with GSLB available under certain contracts. Existing documentation covered individual features and settings, but users lacked a unified explanation of how traffic distribution, health monitoring, DNS, and security work together.
 
 I proposed a dedicated concept guide and initial table of contents to provide that foundation before users moved into configuration. Development progressed in stages alongside higher-priority release documentation.
 
-### My approach
+## My approach
 
 I independently planned, structured, and wrote the GSLB Concept Guide, creating all supporting visuals in Figma and consulting product SMEs to clarify system behavior and validate technical accuracy.
 
@@ -42,7 +42,7 @@ Key decisions included:
 - **Explaining system behavior through visuals and examples.** Used diagrams, comparisons, and scenarios to show how GSLB components and behaviors interact.
 - **Connecting use cases to configuration choices.** Compared deployment scenarios and outlined recommended configurations, helping readers choose an approach before moving into detailed setup instructions.
 
-#### Featured Sections
+### Featured Sections
 
 - **Explaining layered routing logic**
 I separated traffic distribution into the two decision stages—selecting a virtual server pool, then selecting a server within that pool—and used scenarios and diagrams to explain how each stage affects routing.
@@ -74,6 +74,6 @@ I separated traffic distribution into the two decision stages—selecting a virt
     [Read: FortiGate Integration for SD-WAN Inbound Optimization →](https://docs.fortinet.com/document/fortiappsec-cloud/26.3.0/gslb-concept-guide/321153/fortigate-integration-for-sd-wan-inbound-optimization)
     
 
-### Early impact
+## Early impact
 
 Positive feedback from customers and sales teams indicated that the guide was useful in supporting product understanding and sales conversations.

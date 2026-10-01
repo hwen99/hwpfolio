@@ -17,7 +17,7 @@ Customer communications ·  Release messaging
 
 ---
 
-### Overview
+## Overview
 
 - **Role:** Sole Technical Writer
 - **Audience:** Existing customers, typically business application administrators
@@ -25,17 +25,17 @@ Customer communications ·  Release messaging
 - **Timeline:** November, 2024
 - **Collaboration:** Product management, engineering SMEs, marketing
 
-### The challenge
+## The challenge
 
 Multiple products were being consolidated into a single platform, and customers needed clear guidance on how the transition would affect their services and what actions they needed to take, including updating API integrations, Terraform configurations, and access permissions.
 
-### My approach
+## My approach
 
 I separated service changes from required actions, emphasized continuity of application protection, and organized migration instructions so customers could quickly scan the communication and identify the steps relevant to them. 
 
 Throughout, I maintained the company’s formal, authoritative voice to provide clear and consistent direction during the transition.
 
-### Writing sample
+## Writing sample
 
 The following is my proposed draft for one of the customer announcement emails. The final email incorporated input from other contributors and differed from this version.
 

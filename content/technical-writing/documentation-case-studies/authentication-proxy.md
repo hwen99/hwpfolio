@@ -16,7 +16,7 @@ New feature documentation · Configuration guidance
 
 ---
 
-### Overview
+## Overview
 
 - **Role:** Sole Technical Writer
 - **Deliverables:** New feature documentation and in-product feature announcement
@@ -24,11 +24,11 @@ New feature documentation · Configuration guidance
 - **Tools:** MadCap Flare, Figma
 - **Collaboration:** Product management, engineering SMEs, UX
 
-### The challenge
+## The challenge
 
 The new Authentication Proxy feature required users to understand how FortiAppSec Cloud, external identity providers, and origin applications work together through SAML or OIDC. The documentation needed to connect individual settings to the overall authentication flow and help users adapt the configuration to their own application requirements. 
 
-### My approach
+## My approach
 
 I combined feature specifications, Teams discussions, UI designs, and SME input to understand the feature, identify missing information, and organize the documentation around customer goals.
 

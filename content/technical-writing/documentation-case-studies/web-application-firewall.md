@@ -17,7 +17,7 @@ Procedural documentation · Configuration guidance
 
 ---
 
-### Overview
+## Overview
 
 - **Role:** Sole Technical Writer
 - **Deliverable:** End-to-end WAF onboarding documentation
@@ -26,13 +26,13 @@ Procedural documentation · Configuration guidance
 - **Timeline:** Originally published January 2024 · Restructured July 2026 for Flare → Markdown migration
 - **Collaboration:** Product management, engineering SMEs, UX
 
-### The challenge
+## The challenge
 
 Onboarding a WAF application requires decisions about domains, origin servers, traffic routing, CDN behavior, security settings, and DNS. Some choices are difficult or impossible to reverse later.
 
 The documentation needed to connect configuration steps with their consequences and explain the work required outside the product, including firewall prerequisites and DNS changes. Users needed enough context to make informed decisions and complete the full onboarding process.
 
-### My approach
+## My approach
 
 I structured the documentation around the user's complete onboarding journey. 
 

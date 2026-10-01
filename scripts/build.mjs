@@ -54,7 +54,7 @@ const readTopic = async (source) => {
   }
   const body = raw.slice(frontmatter[0].length).trim();
   if (/^# /m.test(body)) throw new Error(`${source}: title must come from frontmatter`);
-  const sections = [...body.matchAll(/^### (.+)$/gm)].map((match) => match[1]);
+  const sections = [...body.matchAll(/^## (.+)$/gm)].map((match) => match[1]);
   for (const section of requiredSections[metadata.type]) {
     if (!sections.includes(section))
       throw new Error(`${source}: missing required section “${section}”`);
@@ -214,7 +214,7 @@ for (const page of pages) {
     )
     .join('');
   const outline =
-    page.kind === 'home' || !toc.length
+    page.kind !== 'study' || !toc.length
       ? ''
       : `<aside class="outline">
 <details open>

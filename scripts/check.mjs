@@ -11,6 +11,10 @@ if (names.length !== expectedPages)
 const pages = new Map(
   await Promise.all(names.map(async (name) => [name, await readFile(`_site/${name}`, 'utf8')])),
 );
+const overviewPages = new Set([
+  'index.html',
+  ...collections.map((collection) => collection.output),
+]);
 let count = 0;
 for (const [name, html] of pages) {
   if (!html.includes('<dialog class="lightbox"') || !html.includes('site/lightbox.js'))
@@ -21,6 +25,11 @@ for (const [name, html] of pages) {
     throw new Error('Expected two expandable landing-page portfolio cards');
   if ((html.match(/<h1\b/g) || []).length !== 1)
     throw new Error(`${name}: expected one main heading`);
+  const hasOutline = html.includes('<aside class="outline">');
+  if (overviewPages.has(name) && hasOutline)
+    throw new Error(`${name}: overview pages must not include a mini-TOC`);
+  if (!overviewPages.has(name) && !hasOutline)
+    throw new Error(`${name}: standalone topic pages must include a mini-TOC`);
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
   if (new Set(ids).size !== ids.length) throw new Error(`${name}: duplicate IDs`);
   for (const image of html.matchAll(/<img\b[^>]*>/g))

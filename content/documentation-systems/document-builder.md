@@ -20,7 +20,7 @@ AI-assisted software development · Docs-as-code
 
 ---
 
-### Overview
+## Overview
 
 - **Deliverable:** A local browser application that validates Markdown sources and generates a publication ZIP and HTML/PDF previews. 
 Docsite publishing and version control support are planned.
@@ -29,7 +29,7 @@ Docsite publishing and version control support are planned.
 - **Timeline:** Sept 17-24, 2026
 - **My role:** Requirements definition, workflow and architecture planning, and direction and verification of AI-assisted implementation.
 
-### The challenge
+## The challenge
 
 As part of our transition from [MadCap Flare to Markdown](topic:madcap-flare-to-markdown-migration), we needed a way to validate source content and generate publication-ready outputs. 
 
@@ -37,7 +37,7 @@ Individual scripts provided parts of that workflow, but their execution order, i
 
 I designed Document Builder to bring those steps into one repeatable workflow, with individually adjustable components to accommodate different project requirements.
 
-### My approach
+## My approach
 
 I mapped the required inputs, outputs and user flow, then defined the build sequence and the information each script needed to exchange.
 
@@ -45,7 +45,7 @@ I adapted clean architecture principles to separate content rules and build work
 
 ![Handwritten Document Builder planning notes showing project setup, pre-build checks, output generation, and post-build checks, branching to preview and proposed publishing on success or file-specific errors on failure. A layered architecture diagram maps document rules, build workflows, adapters, and external tools, with arrows distinguishing dependencies from execution.](assets/planning-notes.png)
 
-#### Key design decisions
+### Key design decisions
 
 - **Validation before and after generation.** 
 Valid source files do not guarantee valid outputs: generation can introduce broken links, unresolved variables or incorrect PDF bookmarks. Source checks catch problems early; output checks verify the generated package. Reporting affected file paths helps writers troubleshoot without inspecting the code.
@@ -56,7 +56,7 @@ Writers can modify individual scripts to meet their project’s needs, and the t
 
 This separation proved useful after I shared the application with colleagues. A coworker contributed an updated PDF-generation script, which I substituted for the existing script without changing the UI or disrupting the build workflow.
 
-#### File organization
+### File organization
 
 ```jsx
 outputbuilder/
@@ -82,7 +82,7 @@ outputbuilder/
 └── .git/                     Version history and repository settings
 ```
 
-#### Testing
+### Testing
 
 Testing was designed at two levels: **publication checks** that run during every build, and **software tests** that verify the tool itself. 
 
@@ -96,7 +96,7 @@ I refined both the severity and scope of validation. Repeated terminology produc
 | Application behavior | Source files remain unchanged, previous builds are preserved, failed builds cannot enable previews, and errors identify affected paths |
 | Architecture | Core layers remain independent of UI and infrastructure, and workflow behavior can be tested without running external tools |
 
-#### Development and iteration
+### Development and iteration
 
 I directed AI-assisted implementation by defining build requirements, reviewing generated behavior and requiring tests for critical workflows. Iteration addressed inconsistent parameters, overly restrictive validation and PDF formatting defects, including lost line breaks in headings and callouts.
 
@@ -104,7 +104,7 @@ The project evolved from a command-line starter into a browser application with 
 
 Initial corruption checks blocked legitimate repeated terminology and Markdown table separators. I changed repeated-text findings to advisory warnings and excluded formatting-only fragments, while retaining blocking checks for stronger corruption indicators.
 
-### Results
+## Results
 
 The builder consolidates a workflow involving 20 scripts into one application, reducing manual execution and directory switching. Built-in sequencing and validation reduce reliance on writers remembering each publishing step.
 

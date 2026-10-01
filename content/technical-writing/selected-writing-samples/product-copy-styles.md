@@ -15,13 +15,13 @@ Self-directed exercise · Product copywriting
 
 ---
 
-### Overview
+## Overview
 
 In this self-directed exercise, I rewrote a feature description in several styles while keeping the core information consistent.
 
-### Copy variations and analysis
+## Copy variations and analysis
 
-#### Passive
+### Passive
 
 > A new *Document Center* widget has been added to the *Home* page. Documents can be viewed and downloaded through the widget. Filters can be applied by document type or date.
 > 
@@ -36,7 +36,7 @@ The copy explains the feature accurately, but repeated passive constructions mak
 - **Placement:** Internal changelogs or release summaries.
 - **Situation:** Recording newly available functionality for internal reference, with the emphasis on **what changed**. For customer-facing feature announcements, more direct wording would usually be a stronger choice.
 
-#### Direct
+### Direct
 
 > **New: Document center**
 View and download documents from the *Document Center* widget on your *Home* dashboard. Filter documents by type or date.
@@ -52,7 +52,7 @@ The copy addresses the reader directly and uses action verbs to make the next st
 - **Placement:** Release notes, *What’s new* sections, or in-app announcements.
 - **Situation:** Introducing a straightforward feature when users need brief, practical instructions to start using it. Suits a **concise**, **practical** product voice.
 
-#### Friendly
+### Friendly
 
 > **New: Document center**
 You can now view and download your documents from your dashboard. Filter by document type or date to find what you need.
@@ -68,7 +68,7 @@ You can now view and download your documents from your dashboard. Filter by docu
 - **Placement:** Release notes, *What’s new* sections, or in-app announcements.
 - **Situation:** Introducing a feature to users browsing product updates, with an emphasis on its everyday usefulness. Suits brands that favor approachable, conversational language.
 
-#### Playful
+### Playful
 
 > 
 > 
@@ -88,7 +88,7 @@ The headline uses wordplay around the *Home* dashboard to add personality. “Pa
 - **Placement:** *What’s new* sections, in-app announcements, or product update emails.
 - **Situation:** Introducing a feature in a routine update, where light humor fits the brand’s established personality.
 
-#### Benefit-led
+### Benefit-led
 
 > **Find the documents you need in one place**
 > 
