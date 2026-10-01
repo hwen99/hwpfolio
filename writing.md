@@ -1,4 +1,4 @@
-# Writing
+# {{collectionTitle}}
 
 I create technical content that helps readers understand complex systems and make informed decisions. 
 

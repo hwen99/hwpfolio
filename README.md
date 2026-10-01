@@ -6,7 +6,7 @@ This repository contains the source for my portfolio of product documentation, c
 
 ## Explore my work
 
-- **[Writing Portfolio](https://hwen99.github.io/hwpfolio/writing.html)** — Concept guides, onboarding workflows, and feature documentation for networking and security products, alongside customer communications and product copy.
+- **[Technical Writing Portfolio](https://hwen99.github.io/hwpfolio/writing.html)** — Concept guides, onboarding workflows, and feature documentation for networking and security products, alongside customer communications and product copy.
 - **[Systems Portfolio](https://hwen99.github.io/hwpfolio/systems.html)** — Document Builder, a Flare-to-Markdown migration, and an exploratory evaluation of documentation for AI retrieval.
 
 The case studies explain the problem, my contribution, the decisions behind the work, and the results, with documentation samples and planning artifacts.

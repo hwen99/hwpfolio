@@ -1,16 +1,14 @@
 # Hannah Wen
 
-**Content engineer and technical writer**
+**Technical writer specializing in documentation systems**
 
-I make complex information easier to understand and manage.
+I build docs-as-code workflows, validation tools, and developer-focused documentation for complex software.
 
 # My work
 
 ---
 
-| [Writing](writing.md)                                                     | [Documentation Systems](systems.md)                   |
-| ------------------------------------------------------------------------- | ----------------------------------------------- |
-| Guides, customer communications, and product copy, optimized for clarity. | Workflows and tools that support documentation. |
+{{portfolioCollections}}
 
 # About me
 
