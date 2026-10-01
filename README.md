@@ -6,8 +6,8 @@ This repository contains the source for my portfolio of product documentation, c
 
 ## Explore my work
 
-- **[Technical Writing Portfolio](https://hwen99.github.io/hwpfolio/writing.html)** — Concept guides, onboarding workflows, and feature documentation for networking and security products, alongside customer communications and product copy.
 - **[Systems Portfolio](https://hwen99.github.io/hwpfolio/systems.html)** — Document Builder, a Flare-to-Markdown migration, and an exploratory evaluation of documentation for AI retrieval.
+- **[Technical Writing Portfolio](https://hwen99.github.io/hwpfolio/writing.html)** — Concept guides, onboarding workflows, and feature documentation for networking and security products, alongside customer communications and product copy.
 
 The case studies explain the problem, my contribution, the decisions behind the work, and the results, with documentation samples and planning artifacts.
 
@@ -17,7 +17,7 @@ The portfolio itself uses a docs-as-code workflow: content is authored in Markdo
 
 To explore the source, start with the [content map](content/navigation.json), the [technical writing topics](content/technical-writing), the [documentation systems topics](content/documentation-systems), or the [publishing workflow](.github/workflows/pages.yml).
 
-Each case study is an independent Markdown topic with validated YAML metadata. The content map defines collection order and hierarchy, while stable `topic:` references connect related topics without coupling links to filenames or headings.
+The content architecture draws on DITA's topic-based authoring principles. Each case study is an independent Markdown topic with typed, schema-validated metadata; the content map defines collection order and hierarchy; and stable `topic:` references decouple cross-links from file paths and headings.
 
 ## Editing and formatting
 

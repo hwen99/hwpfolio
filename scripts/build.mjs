@@ -264,6 +264,7 @@ try {
 <div>
 <a href="mailto:wenhannahh@gmail.com">Email</a>
 <a href="https://www.linkedin.com/in/wenhannah/">LinkedIn</a>
+<a href="https://github.com/hwen99/hwpfolio">GitHub</a>
 <a href="#main">Back to top ↑</a>
 </div>
 </footer>
