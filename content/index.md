@@ -20,12 +20,11 @@ I build docs-as-code workflows, validation tools, and developer-focused document
 
 <div class="about-copy">
 
-I’m a technical writer at Fortinet with over three years of experience explaining networking concepts and enterprise security products.
+I’m a technical writer at Fortinet, where I own and develop documentation that makes complex networking concepts and enterprise security products easier to understand.
 
 Previously, I worked across UX, visual design, data analysis, and database administration at AI startup Dropbase (YC W20) and social media startup Nanogram.
 
-At the University of Toronto, I studied everything from probability proofs and software design to the critical study of art and visual culture. This interdisciplinary education primed me to approach documentation as both a technical system and a designed experience.
-
+At the University of Toronto, I majored in statistics and minored in mathematics and visual studies, with additional coursework in Python, Java, and software design. My background shapes how I approach documentation—as both a technical system to maintain and an experience to design.
 </div>
 
 </div>

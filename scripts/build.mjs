@@ -148,7 +148,11 @@ for (const page of pages) {
         const count = ids.get(base) || 0;
         ids.set(base, count + 1);
         const id = count ? `${base}-${count}` : base;
-        if (depth === 2) toc.push(`<a class="toc-root" href="#${id}">${text}</a>`);
+        const tocDepth = page.metadata?.tocDepth ?? 2;
+        if (depth >= 2 && depth <= tocDepth) {
+          const tocClass = depth === 2 ? 'toc-root' : 'toc-child';
+          toc.push(`<a class="${tocClass}" href="#${id}">${text}</a>`);
+        }
         return `<h${depth} id="${id}">${text}</h${depth}>\n`;
       },
       link({ href, title, tokens }) {

@@ -35,6 +35,10 @@
       "items": { "type": "string", "minLength": 1 },
       "minItems": 1,
       "uniqueItems": true
+    },
+    "tocDepth": {
+      "type": "integer",
+      "enum": [2, 3]
     }
   },
   "allOf": [

@@ -1,9 +1,10 @@
 ---
 id: document-builder
 title: "Document Builder: Developing a documentation publishing tool"
-summary: Designing a publishing tool that coordinates 20 scripts, validates documentation, and generates previews and release files.
+summary: Designing an extensible publishing tool that coordinates over 20 scripts, validates documentation, supports reusable snippets, and generates and publishes release files.
 type: case-study
 status: professional
+tocDepth: 3
 audience:
   - Technical writing team members
 tools:
@@ -14,6 +15,7 @@ tools:
   - JavaScript
   - HTML
   - CSS
+  - Git
 ---
 
 AI-assisted software development · Docs-as-code 
@@ -22,12 +24,27 @@ AI-assisted software development · Docs-as-code
 
 ## Overview
 
-- **Deliverable:** A local browser application that validates Markdown sources and generates a publication ZIP and HTML/PDF previews. 
-Docsite publishing and version control support are planned.
+**I designed a publishing application that coordinates documentation scripts, validates source and generated content, and produces Markdown and PDF release artifacts through one workflow.**
+
+### Project at a glance
+
+- Over 20 coordinated processing and validation scripts
+- Python, Flask, JavaScript, HTML/CSS, Markdown and Git
+- Pre- and post-build validation
+- Automated application and architecture tests
+- Non-destructive source processing
+- HTML/PDF previews, Markdown release ZIP generation and API publishing
+- Used by the team to generate outputs now published on the documentation site
+
+### Scope and ownership
+
 - **Audience:** Technical writing team members
-- **Tools and technologies:** Visual Studio Code, Codex, Python, Flask, JavaScript, HTML, and CSS.
 - **Timeline:** Sept 17-24, 2026
-- **My role:** Requirements definition, workflow and architecture planning, and direction and verification of AI-assisted implementation.
+- **My role:**
+  - **Architecture:** Defined the architecture, interface boundaries, shared input contract, build sequence and validation requirements.
+  - **AI-assisted development:** Used AI to implement portions of the application, then reviewed the resulting behavior and debugged failures.
+  - **Quality assurance:** Required automated tests for critical workflows.
+  - **Project review and enhancements:** Reviewed the project after its initial implementation and added build-time snippet expansion.
 
 ## The challenge
 
@@ -53,8 +70,10 @@ Valid source files do not guarantee valid outputs: generation can introduce brok
 Previously separate scripts used different parameter names and path assumptions. A shared input contract ensures every step uses the same source, output location, version and build number—including meaningful leading zeros such as `0007`. This also keeps release information consistent across the Markdown ZIP and previews.
 - **Editable build steps.** 
 Writers can modify individual scripts to meet their project’s needs, and the team can improve existing scripts or add new checks over time. A shared input contract and explicit execution order help those changes work consistently within the build process.
+- **Build-time content reuse.**
+I recognized the need to reuse shared content without duplication and integrated snippet support into the build process. Writers can reference shared Markdown, for example with `{{_snippets/file_name.md}}`. During a build, the publishing process replaces the reference with the content of the file at that path before converting the Markdown to HTML. This applies the DITA principle of “write once, use everywhere.”
 
-This separation proved useful after I shared the application with colleagues. A coworker contributed an updated PDF-generation script, which I substituted for the existing script without changing the UI or disrupting the build workflow.
+This separation proved useful after I shared the application with colleagues. A coworker contributed an updated PDF-generation script, which I substituted for the existing script without changing the UI or disrupting the build workflow. The modular structure also enabled another coworker to cleanly extend the application with API publishing support.
 
 ### File organization
 
@@ -96,20 +115,23 @@ I refined both the severity and scope of validation. Repeated terminology produc
 | Application behavior | Source files remain unchanged, previous builds are preserved, failed builds cannot enable previews, and errors identify affected paths |
 | Architecture | Core layers remain independent of UI and infrastructure, and workflow behavior can be tested without running external tools |
 
-### Development and iteration
+### Development and technical ownership
 
-I directed AI-assisted implementation by defining build requirements, reviewing generated behavior and requiring tests for critical workflows. Iteration addressed inconsistent parameters, overly restrictive validation and PDF formatting defects, including lost line breaks in headings and callouts.
+I used Codex to generate portions of the application from the architecture, interfaces and workflow requirements I defined. I reviewed the resulting behavior, tested it against real documentation projects and debugged failures. I also revised or rejected generated behavior when it did not meet the requirements.
 
-The project evolved from a command-line starter into a browser application with integrated generation, validation and previews. Automated tests covered script coordination, validation behavior, source preservation, and complete PDF and Markdown publication ZIP generation.
+After the initial implementation, I reviewed the project and added build-time snippet expansion for shared Markdown content. I also refined validation severity and scope and resolved coordination and PDF formatting defects, including inconsistent parameters and lost line breaks in headings and callouts.
+
+I required automated tests for critical behavior, including script coordination, validation, source preservation, architecture boundaries, and complete PDF and Markdown publication ZIP generation. The project evolved from a command-line starter into a browser application with integrated generation, validation, previews and API publishing.
 
 Initial corruption checks blocked legitimate repeated terminology and Markdown table separators. I changed repeated-text findings to advisory warnings and excluded formatting-only fragments, while retaining blocking checks for stronger corruption indicators.
 
 ## Results
 
-The builder consolidates a workflow involving 20 scripts into one application, reducing manual execution and directory switching. Built-in sequencing and validation reduce reliance on writers remembering each publishing step.
-
-I tested the builder on multiple real documentation projects and verified successful end-to-end generation of publication outputs. I also onboarded other writers, who have provided positive initial feedback and are adapting the scripts to their own project requirements. Broader adoption and time savings have not yet been measured.
+- **One workflow instead of over 20 separate scripts.** The builder reduces manual execution and directory switching, while built-in sequencing and validation reduce reliance on writers remembering each publishing step.
+- **Produced documentation that is now live.** My teammates and I successfully used the builder to generate publishable outputs that are now available on the documentation site.
+- **Adopted, adapted and extended by other writers.** Colleagues provided positive initial feedback and began tailoring the scripts to their own project requirements. The modular structure enabled one coworker to cleanly extend the application with API publishing support.
+- **Added reusable content support** I recognized that writers needed to reuse text across topics without copying it. I integrated a build step that replaces references such as `{{_snippets/file_name.md}}` with the referenced file’s content during HTML publishing. Writers can update shared text once and propagate the change to every reuse on the next build.
 
 ![Completed build showing successful validation, available HTML/PDF previews, and the generated Markdown publication ZIP.](assets/document-builder-completed-build.png)
 
-GitHub is already used for version control. API publishing and enhanced GitHub integration, including batch commits across multiple versions, remain planned.
+GitHub is already used for version control. Enhanced GitHub integration, including batch commits across multiple versions, remains planned.
