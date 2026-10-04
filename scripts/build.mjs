@@ -204,15 +204,32 @@ for (const page of pages) {
       ? `<nav class="related-studies" aria-label="More case studies">
 <h2>More in ${page.parent.label}</h2>${studyList(collections.get(page.parent.kind).filter((study) => study !== page))}</nav>`
       : '');
-  const nav = [
-    ['index.html', 'Home'],
-    ...collectionsConfig.map((collection) => [collection.output, collection.label]),
-  ]
-    .map(
-      ([href, label]) =>
-        `<a href="${href}"${href === page.output ? ' aria-current="page"' : ''}>${label}</a>`,
-    )
-    .join('');
+  const nav = `<a href="index.html"${page.kind === 'home' ? ' aria-current="page"' : ''}>Home</a>${collectionsConfig
+    .map((collection) => {
+      const studies = collections.get(collection.kind);
+      const current = page.output === collection.output || page.parent?.kind === collection.kind;
+      return `<details class="nav-collection"${current ? ' data-current="true"' : ''}>
+<summary data-overview="${escape(collection.output)}" title="Click to show case studies; double-click to view the overview">${escape(collection.label)}<span class="nav-chevron" aria-hidden="true"></span></summary>
+<div class="nav-dropdown">
+${collection.groups
+  .map(
+    (
+      group,
+    ) => `${collection.groups.length > 1 ? `<p class="nav-group-label">${escape(group.label)}</p>` : ''}
+<ul>${studies
+      .filter((study) => study.group === group.label)
+      .map(
+        (study) =>
+          `<li><a href="${escape(study.output)}"${page.output === study.output ? ' aria-current="page"' : ''}>${escape(study.title)}</a></li>`,
+      )
+      .join('')}</ul>`,
+  )
+  .join('')}
+<a class="nav-overview" href="${escape(collection.output)}"${page.output === collection.output ? ' aria-current="page"' : ''}>View ${escape(collection.label)} overview →</a>
+</div>
+</details>`;
+    })
+    .join('')}`;
   const outline =
     page.kind !== 'study' || !toc.length
       ? ''
@@ -246,6 +263,7 @@ try {
 <link rel="stylesheet" href="site/styles.css">
 <script src="site/theme.js" defer></script>
 <script src="site/lightbox.js" defer></script>
+<script src="site/navigation.js" defer></script>
 </head>
 <body class="${page.kind}">
 <a class="skip-link" href="#main">Skip to content</a>
