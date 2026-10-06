@@ -2,7 +2,17 @@
 
 **Technical writer specializing in documentation systems**
 
+<p class="home-intro">
 I build docs-as-code workflows, validation tools, and developer-focused documentation for complex software.
+</p>
+
+<p class="home-process">
+This portfolio is managed as a docs-as-code project:
+<a class="github-link" href="https://github.com/hwen99/hwpfolio">
+<span class="link-icon icon-github" aria-hidden="true"></span>
+<span>View the source →</span>
+</a>
+</p>
 
 # My work
 
@@ -24,7 +34,7 @@ I’m a technical writer at Fortinet, where I own and develop documentation that
 
 Previously, I worked across UX, visual design, data analysis, and database administration at AI startup Dropbase (YC W20) and social media startup Nanogram.
 
-At the University of Toronto, I majored in statistics and minored in mathematics and visual studies, with additional coursework in Python, Java, and software design. My background shapes how I approach documentation—as both a technical system to maintain and an experience to design.
+At the University of Toronto, I majored in statistics and minored in mathematics and visual studies, with additional coursework in Python, Java, and software design. My educational background helps me approach documentation as both a technical system to maintain and an experience to design.
 </div>
 
 </div>

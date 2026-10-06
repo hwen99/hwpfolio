@@ -526,12 +526,63 @@ th {
   text-transform: uppercase;
 }
 
-.home main > p:nth-of-type(2) {
+.home-intro {
   font-family: var(--sans);
   font-size: clamp(18px, 3vw, 24px);
   max-width: 700px;
   line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+.home-process {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 700px;
   margin-bottom: 70px;
+  margin-top: 30px;
+}
+
+.home-process a {
+  font-weight: 600;
+}
+
+.github-link {
+  display: inline-flex;
+  gap: 0.4em;
+  align-items: center;
+}
+
+.link-icon {
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+  background-color: currentcolor;
+  mask-image: var(--icon);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-image: var(--icon);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
+.icon-email {
+  --icon: url('../assets/icons/email.svg');
+}
+
+.icon-linkedin {
+  --icon: url('../assets/icons/linkedin.svg');
+}
+
+.icon-github {
+  --icon: url('../assets/icons/github.svg');
+}
+
+.icon-arrow-up {
+  --icon: url('../assets/icons/arrow-up.svg');
 }
 
 .home h2 {
@@ -652,9 +703,21 @@ footer {
   color: var(--muted);
 }
 
-footer div {
+.footer-links {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.footer-links a {
+  display: inline-flex;
+  gap: 0.4em;
+  align-items: center;
+}
+
+.footer-links .link-icon {
+  width: 1.1em;
+  height: 1.1em;
 }
 
 /* Responsive layouts */

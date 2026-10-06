@@ -283,11 +283,23 @@ try {
 </dialog>
 <footer>
 <span>2026 Hannah Wen</span>
-<div>
-<a href="mailto:wenhannahh@gmail.com">Email</a>
-<a href="https://www.linkedin.com/in/wenhannah/">LinkedIn</a>
-<a href="https://github.com/hwen99/hwpfolio">GitHub</a>
-<a href="#main">Back to top ↑</a>
+<div class="footer-links">
+<a href="mailto:wenhannahh@gmail.com">
+<span class="link-icon icon-email" aria-hidden="true"></span>
+<span>Email</span>
+</a>
+<a href="https://www.linkedin.com/in/wenhannah/">
+<span class="link-icon icon-linkedin" aria-hidden="true"></span>
+<span>LinkedIn</span>
+</a>
+<a href="https://github.com/hwen99/hwpfolio">
+<span class="link-icon icon-github" aria-hidden="true"></span>
+<span>GitHub</span>
+</a>
+<a href="#main">
+<span class="link-icon icon-arrow-up" aria-hidden="true"></span>
+<span>Back to top</span>
+</a>
 </div>
 </footer>
 </body>
