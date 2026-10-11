@@ -23,6 +23,8 @@ In this self-directed exercise, I rewrote a feature description in several style
 
 ### Passive
 
+>**Document Center widget added to the Home page** 
+>
 > A new *Document Center* widget has been added to the *Home* page. Documents can be viewed and downloaded through the widget. Filters can be applied by document type or date.
 > 
 
@@ -39,7 +41,8 @@ The copy explains the feature accurately, but repeated passive constructions mak
 ### Direct
 
 > **New: Document center**
-View and download documents from the *Document Center* widget on your *Home* dashboard. Filter documents by type or date.
+>
+> View and download documents from the *Document Center* widget on your *Home* dashboard. Filter documents by type or date.
 > 
 
 **What this style demonstrates**
@@ -70,9 +73,6 @@ You can now view and download your documents from your dashboard. Filter by docu
 
 ### Playful
 
-> 
-> 
-> 
 > **A new home for your paperwork**
 > 
 > Your documents are now right on your *Home* dashboard. View and download them through the *Document Center* widget, and filter by type or date to find the right one.
