@@ -21,17 +21,6 @@ Process Improvement · Documentation tooling
 
 ## Overview
 
-**I standardized a Flare-to-Markdown migration workflow under a four-week deadline, replacing manual ordering conventions and recurring checks with TOC-driven assembly and Python validation.**
-
-### Project at a glance
-
-- Migration work alongside a major product release
-- Document assembly controlled by `toc.md`
-- Automated checks for links, page IDs, encoding and variables
-- Shared tools, configuration and instructions in GitHub
-
-### Scope and ownership
-
 - **Audience:** Technical writing team members
 - **Tools:** MadCap Flare, Markdown, Python, Git/GitHub
 - **Timeline:** June 1–22, 2026 (~3 weeks)
@@ -44,22 +33,19 @@ Process Improvement · Documentation tooling
 
 ## The challenge
 
-At the beginning of June, I learned that my MadCap Flare subscription would expire at the end of the month. Because I had previously proposed migrating the documentation to Markdown, I was asked to complete the migration before the subscription ended.
+At the beginning of June, I learned that my MadCap Flare subscription would expire at the end of the month. Because I had previously proposed migrating the documentation to Markdown, I was asked to complete the migration within four weeks—while also writing documentation for a major product release scheduled for early July.
 
-**The project had two key constraints:**
+The initial conversion and PDF work provided a starting point, but the workflow still depended on manual conventions and recurring checks. It was not reliable or maintainable enough for ongoing use.
 
-- **Fixed deadline:** The migration needed to be completed before the Flare subscription expired.
-- **Concurrent release work:** I was also writing new documentation for a major product release scheduled for early July.
+Key issues included:
+- Cumbersome content ordering: Numeric filename prefixes controlled PDF order, so moving a topic often required renaming multiple files.
+- Broken links and assets: Links to files and images were frequently broken during migration.
+- Encoding issues: Mojibake characters appeared in migrated content.
+- Inconsistent table formatting: Tables did not always convert or render correctly.
+- Broken links in PDF output: PDF generation combined all Markdown files before export, but links to content in subfolders were not updated for the resulting file structure.
+- Fragmented tooling: Scripts, configuration, and instructions needed to be consolidated and shared through GitHub.
 
-The initial conversion and PDF work provided a starting point, but the workflow still relied heavily on manual conventions and was not yet reliable enough for ongoing use.
-
-**Key issues included:**
-
-- **Cumbersome content ordering:** PDF order was controlled through numeric filename prefixes, so moving a topic often required renaming multiple files.
-- **Broken links and assets:** Links to files and images were frequently broken during migration.
-- **Encoding issues:** Mojibake characters appeared in migrated content.
-- **Inconsistent table formatting:** Tables did not always convert or render correctly.
-- **Broken links in PDF output:** PDF generation combined all Markdown files into a single file before export, but links to content in subfolders were not updated to account for the new file structure.
+Under this four-week deadline, I standardized the migration workflow by replacing manual ordering conventions and recurring checks with toc.md-driven document assembly and Python validation for links, page IDs, encoding, and variables. I consolidated the supporting tools, configuration, and instructions in GitHub so the team could use and maintain the workflow consistently.
 
 ## My approach
 
