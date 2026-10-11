@@ -24,20 +24,6 @@ AI-assisted software development · Docs-as-code
 
 ## Overview
 
-**I designed a publishing application that coordinates documentation scripts, validates source and generated content, and produces Markdown and PDF release artifacts through one workflow.**
-
-### Project at a glance
-
-- Over 20 coordinated processing and validation scripts
-- Python, Flask, JavaScript, HTML/CSS, Markdown and Git
-- Pre- and post-build validation
-- Automated application and architecture tests
-- Non-destructive source processing
-- HTML/PDF previews, Markdown release ZIP generation and API publishing
-- Used by the team to generate outputs now published on the documentation site
-
-### Scope and ownership
-
 - **Audience:** Technical writing team members
 - **Timeline:** Sept 17-24, 2026 (1 week)
 - **My role:**
@@ -48,11 +34,18 @@ AI-assisted software development · Docs-as-code
 
 ## The challenge
 
-As part of our transition from [MadCap Flare to Markdown](topic:madcap-flare-to-markdown-migration), we needed a way to validate source content and generate publication-ready outputs. 
+As part of our transition from [MadCap Flare to Markdown](topic:madcap-flare-to-markdown-migration), we needed a way to validate source content and generate publication-ready document outputs. Although individual scripts handled parts of the process, their execution order, inputs, and release settings still had to be coordinated. 
 
-Individual scripts provided parts of that workflow, but their execution order, inputs and release settings needed to be coordinated.
+I designed and developed Document Builder, a publishing application that brings these steps together in a repeatable, configurable workflow adaptable to different project requirements. Its key capabilities, implementation details, and outcomes include:
+- Coordination of more than 20 processing and validation scripts
+- Implementation using Python, Flask, JavaScript, HTML/CSS, Markdown, and Git
+- Markdown and PDF release generation through a single workflow
+- Pre- and post-build validation
+- Automated application and architecture testing
+- Non-destructive source processing
+- HTML and PDF previews, Markdown release ZIP generation, and API publishing
+- Team-wide use to produce content published on the documentation site
 
-I designed Document Builder to bring those steps into one repeatable workflow, with individually adjustable components to accommodate different project requirements.
 
 ## My approach
 
