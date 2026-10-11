@@ -58,7 +58,8 @@ The copy addresses the reader directly and uses action verbs to make the next st
 ### Friendly
 
 > **New: Document center**
-You can now view and download your documents from your dashboard. Filter by document type or date to find what you need.
+>
+> You can now view and download your documents from your dashboard. Filter by document type or date to find what you need.
 > 
 
 **What this style demonstrates**
@@ -91,7 +92,6 @@ The headline uses wordplay around the *Home* dashboard to add personality. “Pa
 ### Benefit-led
 
 > **Find the documents you need in one place**
-> 
 > 
 > View and download documents right from your *Home* dashboard with the new *Document Center* widget. Filter by type or date to narrow your results.
 > 
